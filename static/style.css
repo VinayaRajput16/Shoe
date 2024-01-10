@@ -1,0 +1,728 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bungee+Spice&family=Courgette&family=DM+Serif+Display&family=Libre+Baskerville&family=Merriweather:ital,wght@0,300;1,300&family=Mukta:wght@200&family=Open+Sans:ital,wght@1,300&family=PT+Serif&family=Roboto+Mono:wght@100&family=Rubik+Glitch&display=swap');
+
+* {
+    margin: 0px;
+
+}
+
+#navbar {
+    /* position: -webkit-sticky; */
+    position: sticky;
+    top: 0;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    /* Distributes items evenly with spacing */
+    align-items: center;
+    flex-wrap: wrap;
+
+    background-color: rgb(41, 51, 72);
+
+}
+
+.logo {
+    font-size: 3rem;
+    color: rgb(201, 105, 27);
+}
+
+.logo-enter {
+    opacity: 0;
+    transform: translate(20px, 20px) scale(3, 3);
+    transition: opacity 0.5s ease, transform 0.5s ease-in-out 0.2s;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    /* Remove default bullets */
+    flex-wrap: wrap;
+}
+
+.right-bar {
+    display: flex;
+    align-items: center;
+}
+
+#hamburger-menu img {
+    margin-right: 5px;
+    height: 40px;
+    margin-left: 12px;
+}
+
+#hamburger-menu {
+    background-color: rgb(41, 51, 72, 0.9);
+}
+
+#login-icon {
+    height: 40px;
+    width: 35px;
+    color: white;
+    padding: 4px;
+    transition: transform 0.2s ease-in-out;
+}
+
+#login-icon:hover {
+    /* background-color: rgb(128, 128, 128,0.7); */
+    transform: scale(1.2, 1.2);
+}
+
+@media only screen and (max-width: 800px) {
+    .nav-links .items {
+        margin-left: 0px;
+        margin-right: 10px;
+        color: white;
+        font-size: 10px;
+    }
+
+    #navbar .logo {
+        margin-left: 0px;
+        margin-right: 2px;
+        font-size: 1.5rem;
+    }
+
+    .right-bar #hamburger-menu img {
+        margin-right: 0px;
+        height: 25px;
+        margin-left: 6px;
+    }
+
+    #navbar .nav-links {
+        padding: 0px;
+        margin-left: 0px;
+    }
+
+    #navbar {
+        justify-content: flex-start;
+    }
+
+    #section1 .container {
+        display: none;
+    }
+
+    .section3 {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .right-bar #searchBar {
+        font-size: 4px;
+        flex-grow: 0.1;
+    }
+
+    .right-bar #hamburger-menu img {
+        margin-right: 0px;
+        height: 25px;
+        /* margin-left:   */
+    }
+
+    .nav-links .items {
+        margin: 2px 9px;
+        font-size: 6px;
+    }
+
+    #navbar {
+        justify-content: left;
+    }
+
+    .wh .about {
+        justify-content: flex-start;
+    }
+
+    .short-view .block {
+        font-size: 1px;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .right-bar #searchBar {
+        display: none;
+    }
+
+    .nav-links .items {
+        margin: 2px 9px;
+        font-size: 6px;
+    }
+
+    .section3 .wh {
+        padding: 10px;
+    }
+
+    .wh .wh-img {
+        height: 200px;
+        width: 200px;
+    }
+
+    .short-view .block {
+        font-size: 30px;
+    }
+
+    .collections {
+        padding: 0px;
+        font-size: 12px;
+    }
+
+    .collections .go-to {
+        height: 15px;
+        width: 15px;
+    }
+
+    .about .price {
+        font-size: 20px;
+    }
+}
+
+.items {
+    margin: 0px 25px;
+    color: white;
+    font-size: 1.45rem;
+    /* font-family: ; */
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+.items::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+
+}
+
+.items:hover::after {
+    cursor: pointer;
+    color: rgb(164, 168, 168);
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+#search {
+    height: 40px;
+    width: 40px;
+    padding: 4px;
+    transition: transform 0.25s ease-in-out;
+}
+
+#search:hover {
+    /* background-color: rgb(128, 128, 128,0.7); */
+    transform: scale(1.3, 1.3);
+}
+
+/* The overlay effect with black background */
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black with a little bit see-through */
+}
+
+/* The content */
+.overlay-content {
+    position: relative;
+    top: 46%;
+    width: 80%;
+    text-align: center;
+    margin-top: 30px;
+    margin: auto;
+}
+
+/* Close button */
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+}
+
+.overlay .closebtn:hover {
+    color: #ccc;
+}
+
+/* Style the search field */
+.overlay input[type=text] {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+}
+
+.overlay input[type=text]:hover {
+    background: #f1f1f1;
+}
+
+/* Style the submit button */
+.overlay button {
+    float: left;
+    width: 20%;
+    padding: 15px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.overlay button:hover {
+    background: #bbb;
+}
+
+.right-bar-items {
+    margin: 20px;
+}
+
+#section1 {
+    display: flex;
+    height: 100vh;
+    background: url("./img/radek-skrzypczak-WlB8TsI_th0-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+/* .cover-img{
+    height: 540px;
+    width: 540px;
+    border: 2px solid rgb(191, 98, 5);
+    box-shadow: 22px 12px 5px rgb(170, 59, 7);
+}
+.cover{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 40px;
+   padding: 45px;
+} */
+.container {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1280px;
+}
+
+.shop-btn {
+    padding: 12px;
+    border-radius: 25px;
+    border: 3px solid rgb(92, 10, 10);
+    background-color: rgb(111, 27, 27, 0.9);
+    margin: 15px;
+    width: 35%;
+    font-size: 20px;
+}
+
+.shop-btn:hover {
+    cursor: pointer;
+    background-color: rgb(87, 13, 13);
+    padding: 10px;
+}
+
+.btn-img {
+    height: 25px;
+    width: 25px;
+    margin-left: 10px;
+}
+
+#S1 {
+    font-size: 80px;
+}
+
+#S2 {
+    font-size: 40px;
+}
+
+.short-view {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.block {
+    font: bold;
+    font-size: 3px;
+    font-family: Abril Fatface, Bungee Spice, Courgette, DM Serif Display, Libre Baskerville, Merriweather, Mukta, Open Sans, PT Serif, Roboto Mono, Rubik Glitch;
+}
+
+.block i {
+    margin: 18px;
+}
+
+.section3 {
+    display: flex;
+    padding: 35px 12px;
+    justify-content: space-evenly;
+    margin: 50px 0px;
+}
+
+.wh {
+    border: 1px solid rgb(41, 51, 72);
+    padding: 35px;
+    justify-content: center;
+    align-items: center;
+}
+
+.wh-img {
+    height: 350px;
+    width: 350px;
+    border: 2px solid rgb(41, 51, 72);
+    box-shadow: 12px 6px 10px rgb(41, 51, 72);
+    margin-bottom: 12px;
+
+}
+
+.price {
+    font-size: 40px;
+    color: rgb(41, 51, 72);
+    margin-right: 30px;
+}
+
+.collections {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 3px;
+    background-color: rgb(41, 51, 72, 0.5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.collections:hover {
+    cursor: pointer;
+    background-color: rgb(84, 91, 105, 0.7);
+    padding: 8px;
+}
+
+.go-to {
+    height: 35px;
+    width: 35px;
+}
+
+.about {
+    display: flex;
+    justify-content: space-around;
+}
+
+.foot {
+    height: 700px;
+    border: 4px solid rgba(34, 48, 93, 0.867);
+    background-color: rgb(41, 51, 72);
+    display: flex;
+    flex-direction: column;
+    padding: 14px 20px;
+}
+
+.foot1 {
+    display: flex;
+}
+
+.foot2 {
+
+    margin: 12px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foot3 {
+    display: flex;
+    justify-content: flex-start;
+    color: white;
+    font-size: 1rem;
+}
+
+.brand-name {
+    color: rgb(201, 105, 27);
+    font-size: 10rem;
+}
+
+.help {
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    padding: 20px;
+}
+
+.company {
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    padding: 20px;
+}
+
+.help h3 {
+    font-size: 1.6rem;
+    color: #818181;
+}
+
+.company h3 {
+    font-size: 1.6rem;
+    color: #818181;
+}
+
+.helps {
+    color: white;
+    font-size: 1.3rem;
+    margin: 12px;
+    padding: 6px;
+    position: relative;
+}
+
+.helps::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.helps:hover::after {
+    cursor: pointer;
+    color: rgb(164, 168, 168);
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.companys {
+    color: white;
+    font-size: 1.3rem;
+    margin: 12px;
+    padding: 6px;
+    position: relative;
+}
+
+.companys::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+
+}
+
+.companys:hover::after {
+    cursor: pointer;
+    color: rgb(164, 168, 168);
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    right: 0;
+    background-color: rgb(41, 51, 72, 0.97);
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+    color: #f1f1f1;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #818181;
+    font-size: 35px;
+}
+
+.closebtn:hover {
+    height: 35px;
+    width: 35px;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-right .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+.service-img {
+    height: 360px;
+    width: 360px;
+    margin: 12px;
+    margin-bottom: 20px;
+}
+
+.services-block {
+    overflow: auto;
+    white-space: nowrap;
+    display: flex;
+    margin: 30px 0px;
+}
+
+.services {
+    display: inline-block;
+}
+
+.services-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+    margin: 100px;
+}
+
+.our-services {
+    /* background-color: rgb(41, 51, 72, 0.2); */
+    justify-content: center;
+    display: flex;
+    font-size: 40px;
+}
+
+.full-collection {
+    font-size: 1.8rem;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.full-collection .discover {
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    color: black;
+}
+
+.full-collection .discover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(13, 12, 12);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+
+}
+
+.full-collection .discover:hover::after {
+    cursor: pointer;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+#profile-menu {
+    display: none;
+    position: fixed;
+    top: 80px; /* Adjust the top property to leave space for the navbar */
+    right: 140px; /* Adjust the right property as needed */
+    background-color: rgb(41, 51, 72, 0.97);
+    overflow-y: auto;
+    height: 60%;
+    padding: 40px; /* Padding for better styling */
+    margin: 0;
+    list-style-type: none;
+    padding-inline-start: 0;
+    width: 10%;
+    border: 1px solid rgb(190, 210, 238, 0.4);
+}
+
+#profile-menu li {
+    padding: 8px;
+    margin: 20px;
+}
+
+#profile-menu a {
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 20px;
+    display: block;
+    transition: 0.3s;
+}
+
+#profile-menu a:hover {
+    color: #818181;
+    font-size: 25px;
+}
+
+#profile-menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#profile-menu .closebtn:hover {
+    height: 35px;
+    width: 35px;
+}
+
+@media screen and (max-height: 450px) {
+    #profile-menu {
+        padding-top: 15px;
+    }
+
+    #profile-menu a {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>landing page</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/index.js"></script>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="logo"> Shoes</div>
+        <ul class="nav-links">
+            <li class="nav-itm"> <a class="items" href=""> HOME</a></li>
+            <li class="nav-itm"> <a class="items" href=""> NEW</a></li>
+            <li class="nav-itm"> <a class="items" href=""> SALE</a></li>
+            <li class="nav-itm"> <a class="items" href=""> GIFTS</a></li>
+
+        </ul>
+        <div class="right-bar">
+            <img class="right-bar-items" id="search" src="/static/img/search.svg" onclick="openSearch()" alt="">
+            <img class="right-bar-items" id="login-icon"  onclick="toggleProfileMenu()" src="/static/img/user.png">
+            <button class="right-bar-items" id="hamburger-menu" onclick="openNav()"><img src="/static/img/menu.png"
+                    alt=""></button>
+
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
+        <div id="myOverlay" class="overlay">
+            <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
+            <div class="overlay-content">
+              <form action="action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+            </div>
+        </div>
+    </nav>
+    <section id="section1">
+        <ul class="profile-menu" id="profile-menu">
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">My Orders</a></li>
+            <li><a href="#">Wish List</a></li>
+            <li><a href="#">Addresses</a></li>
+            <li><a href="#">Payment Methods</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+        
+        <div class="container">
+            <span id="S1">title here</span>
+            <span id="S2">Lorem ipsum dolor sit amet consectetur adipisicing </span>
+            <button class="shop-btn">Shop now
+                <img class="btn-img" src="/static/img/arrow-forward-svgrepo-com.svg" alt="">
+            </button>
+        </div>
+    </section>
+    <hr>
+    <section class="section2">
+        <div class="short-view">
+            <span class="block">TRY NEW COLLECTIONS</span>
+            <br>
+            <SPAN class="block"> <i>Shoes </i> FOR YOU</SPAN>
+            <BR>
+            <span class="block">FIND YOUR COMFORT</span>
+        </div>
+    </section>
+    <section class="section3">
+        <div class="wh">
+            <img class="wh-img" src="/static/img/omar-prestwich-jLEGurepDco-unsplash.jpg" alt="">
+            <div class="about">
+                <span class="price">$100</span>
+                <button class="collections">Winter
+                    <img class="go-to" src="/static/img/arrow-forward-svgrepo-com.svg" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="wh">
+            <img class="wh-img" src="/static/img/maksim-larin-NOpsC3nWTzY-unsplash.jpg" alt="">
+            <div class="about">
+                <span class="price">$200</span>
+                <button class="collections">Summer 
+                    <img class="go-to" src="/static/img/arrow-forward-svgrepo-com.svg" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="wh">
+            <img class="wh-img" src="/static/img/irene-kredenets-dwKiHoqqxk8-unsplash.jpg" alt="">
+            <div class="about">
+                <span class="price">$300</span>
+                <button class="collections"> Sports 
+                    <img class="go-to" src="/static/img/arrow-forward-svgrepo-com.svg" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="wh">
+            <img class="wh-img" src="/static/img/paul-gaudriault-a-QH9MAAVNI-unsplash.jpg" alt="">
+            <div class="about">
+                <span class="price">$400</span>
+                <button class="collections"> Casual & 
+                    formal
+                    <img class="go-to" src="/static/img/arrow-forward-svgrepo-com.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </section>
+    <span class="our-services">Our services</span>
+    <section class="services-block">
+        <div class="serives">
+            <div class="services-in">
+                <img src="/static/img/packaging.webp" alt="" class="service-img">
+                <span class="discription"> <h2>COLLECT FROM STORE</h2> <br>
+                    Emboss select bags, luggage, belts,<br> leather accessories, and items<br> from the pet's collection with <br> initials to create a truly unique piece.</span>
+            </div>    
+        </div>
+        <div class="serives">
+            <div class="services-in">
+                <img src="/static/img/collect.jpg" alt="" class="service-img">
+                <span class="discription"> <h2>COLLECT FROM STORE</h2> <br>
+                    Emboss select bags, luggage, belts,<br> leather accessories, and items<br> from the pet's collection with <br> initials to create a truly unique piece.</span>
+            </div>    
+        </div>
+        <div class="serives">
+            <div class="services-in">
+                <img src="/static/img/personalization.jpg" alt="" class="service-img">
+                <span class="discription"> <h2>COLLECT FROM STORE</h2> <br>
+                    Emboss select bags, luggage, belts,<br> leather accessories, and items<br> from the pet's collection with <br> initials to create a truly unique piece.</span>
+            </div>    
+        </div>
+    </section>
+    <div class="full-collection"> <a href="" class="discover">Discover the Collection</a></div>
+    <footer class="foot">
+        <div class="foot1">
+            <div class="help">
+                <h3>HOW WE MAY HELP YOU?</h3>
+                <span class="helps">Contact us</span>
+                <span class="helps">My orders</span>
+                <span class="helps">FAQ's</span>
+                <span class="helps">Email unsubsribed</span>
+                <span class="helps">Sitemap</span>
+
+            </div>
+            <div class="company">
+                <h3>The company</h3>
+                <span class="companys">Abous SHOES</span>
+                <span class="companys">Careers</span>
+                <span class="companys">Leagals</span>
+                <span class="companys">Privacy & cookie policy</span>
+                <span class="companys">Cookies settings</span>
+                <span class="companys">Corparate information</span>
+             </div>
+            <div class="others"></div>
+        </div>
+        <span class="foot3">© 2016 - 2022 shoes S.p.A. - All rights reserved. SIAE LICENCE # 2294/I/1936 and 5647/I/1936</span>
+        <div class="foot2">
+            <span class="brand-name">Shoes</span>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
